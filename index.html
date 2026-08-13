@@ -1,0 +1,2478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Heritage Drive | Drive-Through Restaurant</title>
+
+<style>
+
+/* =========================
+   ROOT COLORS
+========================= */
+
+:root {
+    --cream: #f6f0e4;
+    --paper: #fffaf1;
+    --burgundy: #6f1d2c;
+    --burgundy-light: #8c2939;
+    --green: #334b3b;
+    --gold: #b58b45;
+    --dark: #25221d;
+    --muted: #756d61;
+    --border: #ded2bf;
+    --white: #ffffff;
+}
+
+
+/* =========================
+   DARK MODE COLORS
+========================= */
+
+body.dark-mode {
+    --cream: #171512;
+    --paper: #211e1a;
+    --burgundy: #b84a5d;
+    --burgundy-light: #d05d70;
+    --green: #66856d;
+    --gold: #d4ae68;
+    --dark: #f5ecdf;
+    --muted: #b9ad9d;
+    --border: #40392f;
+    --white: #ffffff;
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.6;
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 92%;
+    max-width: 1180px;
+    margin: auto;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar {
+    background: #171511;
+    color: #f7eddb;
+    text-align: center;
+    padding: 8px;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(246, 240, 228, 0.96);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+body.dark-mode header {
+    background: rgba(23, 21, 18, 0.96);
+}
+
+.nav {
+    min-height: 78px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-mark {
+    width: 46px;
+    height: 46px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--burgundy);
+    font-size: 23px;
+}
+
+.logo strong {
+    display: block;
+    font-size: 21px;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.navlinks {
+    display: flex;
+    gap: 25px;
+    color: #514a40;
+}
+
+body.dark-mode .navlinks {
+    color: #d8cbb9;
+}
+
+.navlinks a:hover {
+    color: var(--burgundy);
+}
+
+
+/* =========================
+   DARK MODE TOGGLE
+========================= */
+
+.theme-toggle {
+    width: 54px;
+    height: 30px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    position: relative;
+    color: var(--dark);
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    border-color: var(--gold);
+}
+
+.theme-toggle .sun {
+    position: absolute;
+    left: 7px;
+    font-size: 14px;
+}
+
+.theme-toggle .moon {
+    position: absolute;
+    right: 7px;
+    font-size: 14px;
+}
+
+.theme-toggle .toggle-circle {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--gold);
+    position: absolute;
+    left: 3px;
+    display: grid;
+    place-items: center;
+    transition: transform 0.3s ease;
+    z-index: 2;
+    color: white;
+    font-size: 12px;
+}
+
+body.dark-mode .theme-toggle .toggle-circle {
+    transform: translateX(24px);
+}
+
+.cart-btn {
+    border: none;
+    background: var(--burgundy);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.cart-btn:hover {
+    background: var(--burgundy-light);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    padding: 80px 0;
+
+    background:
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(181,139,69,0.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f9f3e8,
+            #eee3d1
+        );
+
+    transition: 0.3s;
+}
+
+body.dark-mode .hero {
+    background:
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(212,174,104,0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #211e1a,
+            #171512
+        );
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.kicker {
+    color: var(--burgundy);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 12px;
+}
+
+h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.05;
+    margin: 15px 0 20px;
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 18px;
+    max-width: 600px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+.primary {
+    border: none;
+    background: var(--burgundy);
+    color: white;
+    padding: 13px 20px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.primary:hover {
+    background: var(--burgundy-light);
+}
+
+.secondary {
+    border: 1px solid var(--burgundy);
+    background: transparent;
+    color: var(--burgundy);
+    padding: 12px 20px;
+    border-radius: 7px;
+}
+
+.secondary:hover {
+    background: var(--burgundy);
+    color: white;
+}
+
+.hero-card {
+    background: var(--burgundy);
+    color: #fff8ec;
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 18px 50px rgba(54,38,20,.15);
+}
+
+.hero-food {
+    font-size: 90px;
+    margin-bottom: 10px;
+}
+
+.hero-card h2 {
+    font-size: 30px;
+}
+
+.hero-card p {
+    color: #eadbce;
+    font-size: 15px;
+    margin-top: 8px;
+}
+
+.hero-price {
+    margin-top: 18px;
+    color: #e4c88d;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    padding: 70px 0;
+}
+
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.section h2 {
+    font-size: 40px;
+}
+
+.section-head p {
+    color: var(--muted);
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.toolbar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.search {
+    flex: 1;
+    min-width: 220px;
+    border: 1px solid var(--border);
+    background: var(--paper);
+    color: var(--dark);
+    border-radius: 7px;
+    padding: 13px 15px;
+    outline: none;
+}
+
+.search:focus {
+    border-color: var(--gold);
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter {
+    border: 1px solid var(--border);
+    background: var(--paper);
+    color: var(--dark);
+    border-radius: 7px;
+    padding: 10px 15px;
+}
+
+.filter.active {
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(50,35,20,.06);
+    transition: 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 50px rgba(54,38,20,.12);
+}
+
+.food-img {
+    width: 100%;
+    height: 205px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card h3 {
+    font-size: 21px;
+}
+
+.price {
+    font-weight: bold;
+    color: var(--burgundy);
+    white-space: nowrap;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 8px 0 17px;
+}
+
+.tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.tag {
+    font-size: 11px;
+    background: #eee4d4;
+    color: #665b4c;
+    padding: 4px 8px;
+    border-radius: 20px;
+}
+
+body.dark-mode .tag {
+    background: #383126;
+    color: #d8cbb9;
+}
+
+.add {
+    width: 100%;
+    border: none;
+    background: var(--green);
+    color: white;
+    padding: 11px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.add:hover {
+    filter: brightness(1.1);
+}
+
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.about {
+    background: #25221d;
+    color: #f9efdf;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+}
+
+.about .kicker {
+    color: var(--gold);
+}
+
+.story {
+    border-left: 2px solid var(--gold);
+    padding-left: 24px;
+}
+
+.story p {
+    color: #c8bcaa;
+    margin-bottom: 15px;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.step {
+    border: 1px solid rgba(255,255,255,.14);
+    padding: 22px;
+    border-radius: 10px;
+}
+
+.step b {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.step span {
+    font-size: 13px;
+    color: #bdb09e;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #171511;
+    color: #bdb09e;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 13px;
+}
+
+
+/* =========================
+   CART
+========================= */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(18,15,11,.55);
+    z-index: 200;
+    display: none;
+}
+
+.overlay.show {
+    display: block;
+}
+
+.cart-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: min(460px, 100%);
+    background: var(--paper);
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.cart-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 15px;
+}
+
+.close {
+    border: none;
+    background: transparent;
+    color: var(--dark);
+    font-size: 28px;
+}
+
+.cart-items {
+    padding: 15px 0;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 12px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.cart-thumb {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-item h4 {
+    font-size: 15px;
+}
+
+.cart-item small {
+    color: var(--muted);
+}
+
+.qty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.qty button {
+    width: 25px;
+    height: 25px;
+    border: 1px solid var(--border);
+    background: white;
+    color: #222;
+    border-radius: 4px;
+}
+
+body.dark-mode .qty button {
+    background: #2a2621;
+    color: #f5ecdf;
+}
+
+.remove {
+    border: none;
+    background: none;
+    color: var(--burgundy);
+    font-size: 12px;
+}
+
+.cart-summary {
+    border-top: 2px solid var(--dark);
+    padding-top: 16px;
+}
+
+.sum-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 7px 0;
+}
+
+.total {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.checkout {
+    margin-top: 18px;
+}
+
+.checkout h3 {
+    margin-bottom: 12px;
+}
+
+.checkout input,
+.checkout select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    background: white;
+    color: #222;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+body.dark-mode .checkout input,
+body.dark-mode .checkout select {
+    background: #2a2621;
+    color: #f5ecdf;
+}
+
+.checkout .primary {
+    width: 100%;
+}
+
+
+/* =========================
+   SUCCESS MODAL
+========================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(18,15,11,.62);
+    display: none;
+    place-items: center;
+    z-index: 300;
+    padding: 20px;
+}
+
+.modal.show {
+    display: grid;
+}
+
+.modal-box {
+    background: var(--paper);
+    max-width: 500px;
+    width: 100%;
+    border-radius: 14px;
+    padding: 35px;
+    text-align: center;
+}
+
+.success-icon {
+    width: 65px;
+    height: 65px;
+    margin: auto;
+    border-radius: 50%;
+    background: var(--green);
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+}
+
+.progress {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0;
+    position: relative;
+}
+
+.progress:before {
+    content: "";
+    height: 2px;
+    background: var(--border);
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    top: 14px;
+}
+
+.progress div {
+    position: relative;
+    z-index: 1;
+    width: 30%;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.dot {
+    width: 29px;
+    height: 29px;
+    background: var(--border);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin: auto auto 6px;
+}
+
+.progress .done .dot {
+    background: var(--green);
+    color: white;
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+.toast {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #25221d;
+    color: white;
+    padding: 13px 17px;
+    border-radius: 8px;
+    display: none;
+    z-index: 500;
+}
+
+.toast.show {
+    display: block;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px) {
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navlinks {
+        display: none;
+    }
+
+}
+
+@media(max-width:600px) {
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .nav {
+        min-height: 68px;
+    }
+
+    .logo strong {
+        font-size: 16px;
+    }
+
+    .logo span {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .hero {
+        padding: 50px 0;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+
+    .section h2 {
+        font-size: 32px;
+    }
+
+    .hero-card {
+        padding: 25px;
+    }
+
+    .hero-food {
+        font-size: 70px;
+    }
+
+    .theme-toggle {
+        margin-left: auto;
+    }
+
+    .cart-btn {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     TOP BAR
+========================= -->
+
+<div class="topbar">
+    OPEN DAILY · DRIVE-THROUGH PICKUP · FRESHLY PREPARED
+</div>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header>
+
+<div class="container nav">
+
+<a class="logo" href="#">
+
+    <div class="logo-mark">✦</div>
+
+    <div>
+        <strong>HERITAGE DRIVE</strong>
+        <span>Classic food · modern service</span>
+    </div>
+
+</a>
+
+
+<nav class="navlinks">
+
+    <a href="#menu">Menu</a>
+
+    <a href="#how">How It Works</a>
+
+    <a href="#about">Our Story</a>
+
+</nav>
+
+
+<!-- DARK / LIGHT TOGGLE -->
+
+<button
+    class="theme-toggle"
+    id="themeToggle"
+    aria-label="Toggle dark mode"
+    title="Toggle dark mode">
+
+    <span class="sun">☀</span>
+
+    <span class="toggle-circle">☾</span>
+
+    <span class="moon">☾</span>
+
+</button>
+
+
+<button class="cart-btn" id="openCart">
+
+    Cart (<span id="cartCount">0</span>)
+
+</button>
+
+</div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div>
+
+<div class="kicker">
+    Drive-through dining, done right
+</div>
+
+<h1>
+    Good food.<br>
+    Good taste.<br>
+    Good timing.
+</h1>
+
+<p>
+    Order your favourites, customize your meal,
+    choose a pickup slot and collect without
+    leaving your car.
+</p>
+
+<div class="hero-actions">
+
+<a class="primary" href="#menu">
+    Explore the Menu
+</a>
+
+<button class="secondary" id="heroCart">
+    View My Order
+</button>
+
+</div>
+
+</div>
+
+
+<div class="hero-card">
+
+<div class="hero-food">
+    🍔
+</div>
+
+<h2>
+    The Heritage Burger
+</h2>
+
+<p>
+    Char-grilled patty, aged cheddar,
+    crisp lettuce, house sauce and
+    toasted brioche.
+</p>
+
+<div class="hero-price">
+    From ₹249
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<section class="section" id="menu">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker">
+    Our Menu
+</div>
+
+<h2>
+    Made for the road
+</h2>
+
+</div>
+
+<p>
+    Fresh classics, easy to customize.
+</p>
+
+</div>
+
+
+<div class="toolbar">
+
+<input
+    type="text"
+    id="search"
+    class="search"
+    placeholder="Search burgers, wraps, coffee..."
+>
+
+<div
+    class="filters"
+    id="filters">
+</div>
+
+</div>
+
+
+<div
+    class="menu-grid"
+    id="menuGrid">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<section class="section about" id="how">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker">
+    The Easy Way
+</div>
+
+<h2>
+    From click to collection
+</h2>
+
+</div>
+
+<p>
+    Three simple steps.
+</p>
+
+</div>
+
+
+<div class="steps">
+
+<div class="step">
+
+<b>
+    01 · Choose
+</b>
+
+<span>
+    Browse the menu and customize
+    your meal.
+</span>
+
+</div>
+
+
+<div class="step">
+
+<b>
+    02 · Reserve
+</b>
+
+<span>
+    Select your drive-through
+    pickup time.
+</span>
+
+</div>
+
+
+<div class="step">
+
+<b>
+    03 · Collect
+</b>
+
+<span>
+    Drive to the pickup lane and
+    show your order number.
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="section" id="about">
+
+<div class="container about-grid">
+
+<div>
+
+<div class="kicker">
+    Our Story
+</div>
+
+<h2 style="font-size:40px;margin-top:10px">
+    A classic idea,
+    built for today.
+</h2>
+
+</div>
+
+
+<div class="story">
+
+<p>
+    Heritage Drive combines the warmth
+    of a classic neighbourhood diner
+    with the speed customers expect
+    from a modern drive-through.
+</p>
+
+<p>
+    Our menu, ordering flow and pickup
+    experience are designed to be simple,
+    familiar and dependable.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+©️ 2026 Heritage Drive ·
+Classic Food · Modern Service
+
+</footer>
+
+
+<!-- =========================
+     CART
+========================= -->
+
+<div class="overlay" id="cartOverlay">
+
+<aside class="cart-panel">
+
+<div class="cart-head">
+
+<div>
+
+<div class="kicker">
+    Your Order
+</div>
+
+<h2>
+    Drive-through Cart
+</h2>
+
+</div>
+
+<button
+    class="close"
+    id="closeCart">
+    ×
+</button>
+
+</div>
+
+
+<div
+    class="cart-items"
+    id="cartItems">
+</div>
+
+
+<div class="cart-summary">
+
+<div class="sum-row">
+
+<span>
+    Subtotal
+</span>
+
+<span id="subtotal">
+    ₹0
+</span>
+
+</div>
+
+
+<div class="sum-row">
+
+<span>
+    Service Fee
+</span>
+
+<span id="fee">
+    ₹0
+</span>
+
+</div>
+
+
+<div class="sum-row total">
+
+<span>
+    Total
+</span>
+
+<span id="total">
+    ₹0
+</span>
+
+</div>
+
+
+<div class="checkout">
+
+<h3>
+    Pickup Details
+</h3>
+
+<input
+    id="customerName"
+    placeholder="Your name"
+>
+
+<input
+    id="phone"
+    placeholder="Mobile number"
+    type="tel"
+>
+
+
+<select id="slot">
+
+<option value="">
+    Choose pickup slot
+</option>
+
+<option>
+    12:00 PM – 12:15 PM
+</option>
+
+<option>
+    12:15 PM – 12:30 PM
+</option>
+
+<option>
+    12:30 PM – 12:45 PM
+</option>
+
+<option>
+    01:00 PM – 01:15 PM
+</option>
+
+<option>
+    01:15 PM – 01:30 PM
+</option>
+
+<option>
+    01:30 PM – 01:45 PM
+</option>
+
+</select>
+
+
+<button
+    class="primary"
+    id="checkoutBtn">
+
+    Place Drive-Through Order
+
+</button>
+
+</div>
+
+</div>
+
+</aside>
+
+</div>
+
+
+<!-- =========================
+     SUCCESS MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="successModal">
+
+<div class="modal-box">
+
+<div class="success-icon">
+    ✓
+</div>
+
+<div
+    class="kicker"
+    style="margin-top:18px">
+
+    Order Confirmed
+
+</div>
+
+<h2
+    style="font-size:34px;margin:5px 0">
+
+    See you at the drive-through.
+
+</h2>
+
+<p style="color:var(--muted)">
+
+    Your order number is
+
+    <strong id="orderNo"></strong>.
+
+</p>
+
+
+<div class="progress">
+
+<div class="done">
+
+<div class="dot">
+    ✓
+</div>
+
+Order placed
+
+</div>
+
+
+<div class="done">
+
+<div class="dot">
+    ✓
+</div>
+
+Being prepared
+
+</div>
+
+
+<div>
+
+<div class="dot">
+    3
+</div>
+
+Ready for pickup
+
+</div>
+
+</div>
+
+
+<button
+    class="primary"
+    id="doneBtn">
+
+    Back to Menu
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+/* =========================
+   MENU DATA
+========================= */
+
+const menu = [
+
+{
+    id: 1,
+    name: "Heritage Burger",
+    category: "Burgers",
+    price: 249,
+
+    image:
+    "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80",
+
+    description:
+    "Char-grilled beef patty, aged cheddar, lettuce, tomato and house sauce.",
+
+    tags: [
+        "Best Seller",
+        "Customizable"
+    ]
+},
+
+{
+    id: 2,
+    name: "Classic Chicken Burger",
+    category: "Burgers",
+    price: 229,
+
+    image:
+    "https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=900&q=80",
+
+    description:
+    "Crispy chicken, slaw, pickles and heritage mayo in toasted brioche.",
+
+    tags: [
+        "Crispy",
+        "Popular"
+    ]
+},
+
+{
+    id: 3,
+    name: "Smoky BBQ Wrap",
+    category: "Wraps",
+    price: 199,
+
+    image:
+    "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=900&q=80",
+
+    description:
+    "Grilled chicken, smoky BBQ glaze, lettuce and creamy dressing.",
+
+    tags: [
+        "Grilled"
+    ]
+},
+
+{
+    id: 4,
+    name: "Golden Fries",
+    category: "Sides",
+    price: 99,
+
+    image:
+    "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=900&q=80",
+
+    description:
+    "Crisp golden fries finished with a light seasoning.",
+
+    tags: [
+        "Vegetarian"
+    ]
+},
+
+{
+    id: 5,
+    name: "Cheese Loaded Fries",
+    category: "Sides",
+    price: 149,
+
+    image:
+    "https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=900&q=80",
+
+    description:
+    "Golden fries, cheddar sauce, herbs and a smoky topping.",
+
+    tags: [
+        "Shareable"
+    ]
+},
+
+{
+    id: 6,
+    name: "Classic Cold Coffee",
+    category: "Drinks",
+    price: 129,
+
+    image:
+    "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=80",
+
+    description:
+    "Smooth chilled coffee with milk and a touch of sweetness.",
+
+    tags: [
+        "Cold"
+    ]
+},
+
+{
+    id: 7,
+    name: "Lemon Iced Tea",
+    category: "Drinks",
+    price: 89,
+
+    image:
+    "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=900&q=80",
+
+    description:
+    "Refreshing black tea, lemon and a little sweetness over ice.",
+
+    tags: [
+        "Refreshing"
+    ]
+},
+
+{
+    id: 8,
+    name: "Chocolate Sundae",
+    category: "Desserts",
+    price: 119,
+
+    image:
+    "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=900&q=80",
+
+    description:
+    "Creamy vanilla soft serve with chocolate sauce and crunch.",
+
+    tags: [
+        "Sweet"
+    ]
+},
+
+{
+    id: 9,
+    name: "Breakfast Stack",
+    category: "Breakfast",
+    price: 179,
+
+    image:
+    "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80",
+
+    description:
+    "Egg, cheese and a savoury patty layered in a toasted bun.",
+
+    tags: [
+        "Morning"
+    ]
+}
+
+];
+
+
+/* =========================
+   CART
+========================= */
+
+let cart =
+    JSON.parse(
+        localStorage.getItem("heritageCart")
+    ) || [];
+
+let activeCategory = "All";
+
+
+/* =========================
+   HELPERS
+========================= */
+
+function money(amount) {
+
+    return "₹" +
+        amount.toLocaleString("en-IN");
+
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
+
+const categories = [
+    "All",
+    ...new Set(
+        menu.map(item => item.category)
+    )
+];
+
+
+function renderFilters() {
+
+    const filters =
+        document.getElementById("filters");
+
+    filters.innerHTML =
+        categories.map(category => `
+
+            <button
+                class="filter
+                ${category === activeCategory
+                    ? "active"
+                    : ""}"
+
+                onclick="
+                    setCategory('${category}')
+                ">
+
+                ${category}
+
+            </button>
+
+        `).join("");
+
+}
+
+
+function setCategory(category) {
+
+    activeCategory = category;
+
+    renderFilters();
+
+    renderMenu();
+
+}
+
+
+/* =========================
+   MENU DISPLAY
+========================= */
+
+function renderMenu() {
+
+    const search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+
+    const filtered =
+        menu.filter(item => {
+
+            const matchesCategory =
+                activeCategory === "All" ||
+                item.category === activeCategory;
+
+
+            const matchesSearch =
+                (
+                    item.name +
+                    item.description +
+                    item.category
+                )
+                .toLowerCase()
+                .includes(search);
+
+
+            return (
+                matchesCategory &&
+                matchesSearch
+            );
+
+        });
+
+
+    document.getElementById("menuGrid")
+        .innerHTML =
+
+        filtered.map(item => `
+
+            <article class="card">
+
+                <img
+                    class="food-img"
+                    src="${item.image}"
+                    alt="${item.name}"
+                    loading="lazy"
+                >
+
+                <div class="card-body">
+
+                    <div class="card-top">
+
+                        <h3>
+                            ${item.name}
+                        </h3>
+
+                        <span class="price">
+                            ${money(item.price)}
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        ${item.description}
+                    </p>
+
+
+                    <div class="tags">
+
+                        ${item.tags.map(tag => `
+
+                            <span class="tag">
+                                ${tag}
+                            </span>
+
+                        `).join("")}
+
+                    </div>
+
+
+                    <button
+                        class="add"
+                        onclick="
+                            addToCart(${item.id})
+                        ">
+
+                        Add to Order
+
+                    </button>
+
+                </div>
+
+            </article>
+
+        `).join("");
+
+}
+
+
+/* =========================
+   ADD TO CART
+========================= */
+
+function addToCart(id) {
+
+    const existing =
+        cart.find(item => item.id === id);
+
+
+    if (existing) {
+
+        existing.quantity++;
+
+    } else {
+
+        cart.push({
+            id: id,
+            quantity: 1
+        });
+
+    }
+
+
+    saveCart();
+
+    renderCart();
+
+    showToast(
+        "Added to your order"
+    );
+
+}
+
+
+/* =========================
+   CHANGE QUANTITY
+========================= */
+
+function changeQuantity(
+    id,
+    change
+) {
+
+    const item =
+        cart.find(
+            item => item.id === id
+        );
+
+
+    if (!item) return;
+
+
+    item.quantity += change;
+
+
+    if (item.quantity <= 0) {
+
+        cart =
+            cart.filter(
+                item => item.id !== id
+            );
+
+    }
+
+
+    saveCart();
+
+    renderCart();
+
+}
+
+
+/* =========================
+   SAVE CART
+========================= */
+
+function saveCart() {
+
+    localStorage.setItem(
+        "heritageCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* =========================
+   RENDER CART
+========================= */
+
+function renderCart() {
+
+    const cartCount =
+        cart.reduce(
+            (total, item) =>
+                total + item.quantity,
+            0
+        );
+
+
+    document.getElementById(
+        "cartCount"
+    ).textContent = cartCount;
+
+
+    const cartItems =
+        document.getElementById(
+            "cartItems"
+        );
+
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+
+            <div
+                style="
+                    padding:35px 5px;
+                    text-align:center;
+                    color:var(--muted)
+                ">
+
+                Your cart is empty.
+
+                <br>
+
+                Add something delicious
+                from the menu.
+
+            </div>
+
+        `;
+
+    } else {
+
+        cartItems.innerHTML =
+
+            cart.map(cartItem => {
+
+                const item =
+                    menu.find(
+                        food =>
+                        food.id === cartItem.id
+                    );
+
+
+                return `
+
+                    <div class="cart-item">
+
+                        <img
+                            class="cart-thumb"
+                            src="${item.image}"
+                            alt="${item.name}"
+                        >
+
+
+                        <div>
+
+                            <h4>
+                                ${item.name}
+                            </h4>
+
+                            <small>
+                                ${money(item.price)}
+                                each
+                            </small>
+
+
+                            <div class="qty">
+
+                                <button
+                                    onclick="
+                                        changeQuantity(
+                                            ${item.id},
+                                            -1
+                                        )
+                                    ">
+
+                                    −
+
+                                </button>
+
+
+                                <b>
+                                    ${cartItem.quantity}
+                                </b>
+
+
+                                <button
+                                    onclick="
+                                        changeQuantity(
+                                            ${item.id},
+                                            1
+                                        )
+                                    ">
+
+                                    +
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <b>
+                                ${money(
+                                    item.price *
+                                    cartItem.quantity
+                                )}
+                            </b>
+
+                            <br>
+
+                            <button
+                                class="remove"
+                                onclick="
+                                    changeQuantity(
+                                        ${item.id},
+                                        -${cartItem.quantity}
+                                    )
+                                ">
+
+                                Remove
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }).join("");
+
+    }
+
+
+    /* =========================
+       TOTALS
+    ========================= */
+
+    const subtotal =
+        cart.reduce(
+            (total, cartItem) => {
+
+                const item =
+                    menu.find(
+                        food =>
+                        food.id === cartItem.id
+                    );
+
+
+                return total +
+                    item.price *
+                    cartItem.quantity;
+
+            },
+            0
+        );
+
+
+    const serviceFee =
+        cart.length > 0
+            ? 20
+            : 0;
+
+
+    const total =
+        subtotal + serviceFee;
+
+
+    document.getElementById(
+        "subtotal"
+    ).textContent = money(subtotal);
+
+
+    document.getElementById(
+        "fee"
+    ).textContent = money(serviceFee);
+
+
+    document.getElementById(
+        "total"
+    ).textContent = money(total);
+
+}
+
+
+/* =========================
+   OPEN CART
+========================= */
+
+function openCart() {
+
+    document
+        .getElementById("cartOverlay")
+        .classList.add("show");
+
+}
+
+
+function closeCart() {
+
+    document
+        .getElementById("cartOverlay")
+        .classList.remove("show");
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById("toast");
+
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 1800);
+
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+function checkout() {
+
+    if (cart.length === 0) {
+
+        showToast(
+            "Add at least one item first"
+        );
+
+        return;
+
+    }
+
+
+    const name =
+        document
+        .getElementById("customerName")
+        .value
+        .trim();
+
+
+    const phone =
+        document
+        .getElementById("phone")
+        .value
+        .trim();
+
+
+    const slot =
+        document
+        .getElementById("slot")
+        .value;
+
+
+    if (!name) {
+
+        showToast(
+            "Please enter your name"
+        );
+
+        return;
+
+    }
+
+
+    if (!phone) {
+
+        showToast(
+            "Please enter your mobile number"
+        );
+
+        return;
+
+    }
+
+
+    if (!slot) {
+
+        showToast(
+            "Please choose a pickup slot"
+        );
+
+        return;
+
+    }
+
+
+    const orderNumber =
+        "HD-" +
+        Math.floor(
+            100000 +
+            Math.random() * 900000
+        );
+
+
+    document.getElementById(
+        "orderNo"
+    ).textContent = orderNumber;
+
+
+    cart = [];
+
+    saveCart();
+
+    renderCart();
+
+
+    closeCart();
+
+
+    document
+        .getElementById("successModal")
+        .classList.add("show");
+
+}
+
+
+/* =========================
+   DARK / LIGHT MODE
+========================= */
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+
+const savedTheme =
+    localStorage.getItem("heritageTheme");
+
+
+if (savedTheme === "dark") {
+
+    document.body.classList.add("dark-mode");
+
+}
+
+
+function updateThemeButton() {
+
+    const circle =
+        themeToggle.querySelector(
+            ".toggle-circle"
+        );
+
+
+    if (
+        document.body.classList
+            .contains("dark-mode")
+    ) {
+
+        circle.textContent = "☀";
+
+        themeToggle.title =
+            "Switch to light mode";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Switch to light mode"
+        );
+
+    } else {
+
+        circle.textContent = "☾";
+
+        themeToggle.title =
+            "Switch to dark mode";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            "Switch to dark mode"
+        );
+
+    }
+
+}
+
+
+themeToggle.addEventListener(
+    "click",
+    () => {
+
+        document.body.classList.toggle(
+            "dark-mode"
+        );
+
+
+        const isDark =
+            document.body.classList
+                .contains("dark-mode");
+
+
+        localStorage.setItem(
+            "heritageTheme",
+            isDark
+                ? "dark"
+                : "light"
+        );
+
+
+        updateThemeButton();
+
+    }
+);
+
+
+updateThemeButton();
+
+
+/* =========================
+   EVENT LISTENERS
+========================= */
+
+document
+    .getElementById("search")
+    .addEventListener(
+        "input",
+        renderMenu
+    );
+
+
+document
+    .getElementById("openCart")
+    .addEventListener(
+        "click",
+        openCart
+    );
+
+
+document
+    .getElementById("heroCart")
+    .addEventListener(
+        "click",
+        openCart
+    );
+
+
+document
+    .getElementById("closeCart")
+    .addEventListener(
+        "click",
+        closeCart
+    );
+
+
+document
+    .getElementById("checkoutBtn")
+    .addEventListener(
+        "click",
+        checkout
+    );
+
+
+document
+    .getElementById("doneBtn")
+    .addEventListener(
+        "click",
+        () => {
+
+            document
+                .getElementById("successModal")
+                .classList.remove("show");
+
+            window.location.href = "#menu";
+
+        }
+    );
+
+
+document
+    .getElementById("cartOverlay")
+    .addEventListener(
+        "click",
+        event => {
+
+            if (
+                event.target.id ===
+                "cartOverlay"
+            ) {
+
+                closeCart();
+
+            }
+
+        }
+    );
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+renderFilters();
+
+renderMenu();
+
+renderCart();
+
+</script>
+
+</body>
+</html>
